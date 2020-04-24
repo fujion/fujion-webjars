@@ -17,6 +17,7 @@
 	<properties>
 		<maven.source.skip>true</maven.source.skip>
 		<maven.javadoc.skip>true</maven.javadoc.skip>
+		<webjar.name>${project.artifactId}</webjar.name>
 		<skipStagingRepositoryClose>true</skipStagingRepositoryClose>
 		<!--suppress UnresolvedMavenProperty -->
 		<src.version>${version.unrevise}</src.version>

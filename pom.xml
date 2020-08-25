@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.fujion</groupId>
 		<artifactId>fujion-root</artifactId>
-		<version>3.0.0</version>
+		<version>3.1.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.fujion.webjars</groupId>
 	<artifactId>fujion-webjars</artifactId>
-	<version>3.0.0</version>
+	<version>3.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Fujion Web Jars Root POM</name>
 	<description>Parent POM for web resources packaged for use by Fujion Framework.</description>

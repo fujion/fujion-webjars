@@ -27,6 +27,7 @@
         <src.tmpdir>${project.build.directory}/staging</src.tmpdir>
         <src.zipdir>${project.build.directory}/archive</src.zipdir>
         <src.rootdir>${src.tmpdir}/${src.top}</src.rootdir>
+        <npm-install.skip>false</npm-install.skip>
     </properties>
 
     <build>
@@ -39,7 +40,6 @@
                         <execution>
                             <id>npm-install</id>
                             <configuration>
-                                <skip>false</skip>
                                 <workingDirectory>${src.rootdir}</workingDirectory>
                             </configuration>
                         </execution>

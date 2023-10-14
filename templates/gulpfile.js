@@ -4,7 +4,7 @@ const minifyCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const rename = require("gulp-rename");
 
-const srcDir = '${src.rootdir}/node_modules/<package-goes-here>/';
+const srcDir = '${webjar.staging}/node_modules/<package-goes-here>/';
 const destDir = '${webjar.target}/';
 
 function task1() {

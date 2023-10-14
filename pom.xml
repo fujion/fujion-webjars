@@ -18,74 +18,36 @@
     <properties>
         <maven.source.skip>true</maven.source.skip>
         <maven.javadoc.skip>true</maven.javadoc.skip>
-        <webjar.name>${project.artifactId}</webjar.name>
+        <webjar.compile.skip>false</webjar.compile.skip>
         <skipStagingRepositoryClose>true</skipStagingRepositoryClose>
         <!--suppress UnresolvedMavenProperty -->
         <src.version>${version.unrevise}</src.version>
         <src.url/>
-        <src.top>.</src.top>
-        <src.tmpdir>${project.build.directory}/staging</src.tmpdir>
-        <src.zipdir>${project.build.directory}/archive</src.zipdir>
-        <src.rootdir>${src.tmpdir}/${src.top}</src.rootdir>
-        <npm-install.skip>true</npm-install.skip>
     </properties>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <id>npm-install</id>
-                            <configuration>
-                                <workingDirectory>${src.rootdir}</workingDirectory>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <id>initialize</id>
-                            <configuration>
-                                <target>
-                                    <mkdir dir="${webjar.target}"/>
-                                    <mkdir dir="${src.tmpdir}"/>
-                                    <mkdir dir="${src.zipdir}"/>
-                                </target>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.fujion.webjars</groupId>
-                    <artifactId>webjar-validator-maven-plugin</artifactId>
-                    <version>1.0.0-SNAPSHOT</version>
-                    <executions>
-                        <execution>
-                            <id>validate-webjar</id>
-                            <goals>
-                                <goal>validate-webjar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>npm-install</id>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <profiles>
+        <profile>
+            <id>webjar-compile</id>
+            <activation>
+                <property>
+                    <name>packaging</name>
+                    <value>jar</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>webjar-compile</id>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

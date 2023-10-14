@@ -25,29 +25,4 @@
         <src.url/>
     </properties>
 
-    <profiles>
-        <profile>
-            <id>webjar-compile</id>
-            <activation>
-                <property>
-                    <name>packaging</name>
-                    <value>jar</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>webjar-compile</id>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
 </project>
